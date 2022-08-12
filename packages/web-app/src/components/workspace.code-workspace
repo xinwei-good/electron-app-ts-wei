@@ -1,0 +1,9 @@
+{
+  "folders": [],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "electron-app"
+  },
+  "extensions": {
+    "recommendations": ["mhutchie.git-graph"]
+  }
+}

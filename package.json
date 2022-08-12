@@ -1,0 +1,25 @@
+{
+  "name": "koa-typeorm-vue3-teach",
+  "version": "1.0.0",
+  "main": "out/index.js",
+  "private": true,
+  "scripts": {
+    "web-dev": "cd ./packages/web-app && npx vite dev",
+    "electron-dev": "cd ./packages/my-electron-app && npx electron .",
+    "web-build": "cd ./packages/web-app && npx vue-tsc --noEmit && npx vite build"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/*"
+    ]
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "del": "^7.0.0"
+  },
+  "dependencies": {
+  }
+}
