@@ -1,9 +1,10 @@
 const { app,ipcMain,dialog,Notification, Menu, MenuItem,Tray } = require('electron')  
 const  MainWindow =require('./viewsWindow/mainWinsow')
+require('./maninHendel/handel')
 // const handle =require('./maninHendel/handel')
     app.whenReady().then(() => {
       MainWindow.create()
-      tray()
+      
     })
       app.disableHardwareAcceleration()
     async function handleFileOpen() {
@@ -39,7 +40,7 @@ const  MainWindow =require('./viewsWindow/mainWinsow')
 
   function tray(){
     let tray = null
-    ray = new Tray('assets/favicon')
+    ray = new Tray('./assets/favicon.ico')
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio' },
     { label: 'Item2', type: 'radio' },

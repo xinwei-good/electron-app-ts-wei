@@ -1,5 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import HomePage from "../view/main/HomePage.vue";
+import LoginHome from "../view/login/LoginHome.vue";
+
 export const mainMenu = [
   {
     name: "main",
@@ -23,6 +25,11 @@ const routes = [
     redirect: "/main",
   },
   ...mainMenu,
+  {
+    title: "登录页",
+    path: "/login/index",
+    component: () => LoginHome,
+  },
 ];
 
 const router = createRouter({
