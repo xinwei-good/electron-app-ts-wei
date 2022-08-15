@@ -13,7 +13,7 @@ export const mainMenu = [
         title: "主页",
         name: "main/index",
         path: "/main/index",
-        component: () => HomePage,
+        component: HomePage,
       },
     ],
   },
@@ -28,7 +28,7 @@ const routes = [
   {
     title: "登录页",
     path: "/login/index",
-    component: () => LoginHome,
+    component: LoginHome,
   },
 ];
 

@@ -15,14 +15,14 @@ exports.copyWeb=copyWebDist
 
 async function gulps(cb){
     await series(
-        await cleanWeb(cb),
-        await cleanNode(cb),
+         cleanWeb(cb),
+         cleanNode(cb),
         console.log('清除dist包完成'),
-        await  webBuild(cb),
+          webBuild(cb),
         console.log('web打包完成'),
-        await copyWebDist(cb),
+         copyWebDist(cb),
         console.log('复制web包完成'),
-        await nodeBuild(cb),
+         nodeBuild(cb),
         console.log('electron打包完成'),
         )
     // cb()

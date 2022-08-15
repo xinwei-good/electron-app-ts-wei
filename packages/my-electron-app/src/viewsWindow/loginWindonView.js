@@ -21,7 +21,7 @@ const isdev =require('electron-is-dev')
           if(isdev){
             this.win.loadURL('http://localhost:3000/#/login/index')
           }else{
-            let page_url=path.join(__dirname, '../web/index.html')
+            let page_url=path.join(__dirname, '../web-dist/index.html')
             this.win.loadFile(page_url,{hash:"/#/login/index"}) 
           }
     }

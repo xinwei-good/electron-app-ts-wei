@@ -25,7 +25,7 @@ const isdev =require('electron-is-dev')
             this.win.loadURL('http://localhost:3000/')
             this.win.webContents.openDevTools({mode:'detach'})
           }else{
-            let ab=path.join(__dirname, '../web/index.html')
+            let ab=path.join(__dirname, '../web-dist/index.html')
             this.win.loadFile(ab) 
           }
     }
