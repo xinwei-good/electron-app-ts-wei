@@ -1,11 +1,12 @@
 const  {series ,parallel} =require('gulp');
-const {cleanWeb,cleanNode} =require('./scripts/clean');
+const {cleanWeb,cleanNode,cleanWebDist} =require('./scripts/clean');
 const {webBuild,nodeBuild}=require('./scripts/build');
 const {copyWebDist}=require('./scripts/copy');
 
 
 exports.cleanWeb=cleanWeb
 exports.cleanNode=cleanNode
+exports.cleanWebdist=cleanWebDist
 exports.clean=parallel(cleanWeb,cleanNode)
   
        
@@ -15,12 +16,13 @@ exports.copyWeb=copyWebDist
 
 async function gulps(cb){
     await series(
-         cleanWeb(cb),
-         cleanNode(cb),
+        cleanWeb(cb),
+        cleanNode(cb),
+        cleanWebDist(cb),
         console.log('清除dist包完成'),
-          webBuild(cb),
+        webBuild(cb),
         console.log('web打包完成'),
-         copyWebDist(cb),
+        copyWebDist(cb),
         console.log('复制web包完成'),
          nodeBuild(cb),
         console.log('electron打包完成'),

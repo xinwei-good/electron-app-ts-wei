@@ -26,8 +26,14 @@ function cleanNode(cb){
    cb()
 }
 
+function cleanWebDist(cb){
+    deleteall('./packages/my-electron-app/src/web-dist')
+   cb()
+}
+
 
 module.exports={
     cleanWeb,
-    cleanNode 
+    cleanNode,
+    cleanWebDist
 }

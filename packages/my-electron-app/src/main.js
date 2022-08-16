@@ -6,6 +6,7 @@ require('./maninHendel/handel')
       MainWindow.create()
       
     })
+    process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
       app.disableHardwareAcceleration()
     async function handleFileOpen() {
       const { canceled, filePaths } = await dialog.showOpenDialog()
@@ -15,20 +16,9 @@ require('./maninHendel/handel')
         return filePaths[0]
       }
     }
-    async function openview(){
-      MainWindow.openBroview()
-    }
-     
-    
-    async function disclose(){
-      MainWindow.dispatch()
-    }
-    ipcMain.on('open-diong',()=>{
-      // app.quit()
-      showNotifing()
-    })
 
-  function showNotifing(){
+     
+      function showNotifing(){
     new Notification({title:'Notification_TITLE',body:'Notification_BODY',silent:true}).show()
   }
 

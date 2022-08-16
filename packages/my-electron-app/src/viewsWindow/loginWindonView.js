@@ -1,6 +1,6 @@
 const { app, BrowserWindow, Menu,ipcMain,dialog,BrowserView } = require('electron')  
 const path =require('path')
-const isdev =require('electron-is-dev')
+const isdev =!app.isPackaged
 
  module.exports =class loginWindow{
     constructor(){
@@ -8,7 +8,7 @@ const isdev =require('electron-is-dev')
     }
     static win
     static async create(){
-        Menu.setApplicationMenu(null) //取消顶部菜单栏
+        // Menu.setApplicationMenu(null) //取消顶部菜单栏
         this.win = new BrowserWindow({
             width: 300,
             height: 200,
@@ -19,10 +19,10 @@ const isdev =require('electron-is-dev')
            },
           })
           if(isdev){
-            this.win.loadURL('http://localhost:3000/#/login/index')
+           await this.win.loadURL('http://localhost:3000/#/login/index')
           }else{
-            let page_url=path.join(__dirname, '../web-dist/index.html')
-            this.win.loadFile(page_url,{hash:"/#/login/index"}) 
+           let page_url=path.join(__dirname, '../web-dist/index.html')
+           await this.win.loadFile(page_url,{hash:"/login/index"}) 
           }
     }
     static async openBroview(){
