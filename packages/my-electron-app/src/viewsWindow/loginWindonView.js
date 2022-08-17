@@ -1,15 +1,15 @@
 const { app, BrowserWindow, Menu,ipcMain,dialog,BrowserView } = require('electron')  
 const path =require('path')
+const isdev =!app.isPackaged
 
  module.exports =class loginWindow{
     constructor(){
-      MainWindow.create()
-      // this.win =BrowserWindow
+      loginWindow.create()
     }
     static win
     static async create(){
         // Menu.setApplicationMenu(null) //取消顶部菜单栏
-        loginWindow.win = new BrowserWindow({
+        this.win = new BrowserWindow({
             width: 300,
             height: 200,
             // frame:false, //缩小，最大化去除
@@ -18,8 +18,12 @@ const path =require('path')
             nodeIntegration:true,
            },
           })
-          loginWindow.win.loadFile('index.html')
-          loginWindow.win.webContents.toggleDevTools()
+          if(isdev){
+           await this.win.loadURL('http://localhost:3000/#/login/index')
+          }else{
+           let page_url=path.join(__dirname, '../web-dist/index.html')
+           await this.win.loadFile(page_url,{hash:"/login/index"}) 
+          }
     }
     static async openBroview(){
       // const view = new BrowserView()

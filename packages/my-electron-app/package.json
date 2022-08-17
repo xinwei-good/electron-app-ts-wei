@@ -15,35 +15,23 @@
     "electron-builder": "^23.1.0"
   },
   "dependencies": {
-    "electron-is-dev":"^2.0.0",
     "yarn": "^1.22.19"
   },
   "build": {
+    "productName":"测试应用",
     "asar":false,
     "appId": "rust-yx.app",
     "mac": {
       "target": ["dmg","zip"]
     },
     "win": {
-      "icon":"./build/tea.png",
+      "icon":"./build/tea.png", 
       "target": ["nsis","zip"]
     },
     "nsis":{
       "oneClick":"false",
       "allowToChangeInstallationDirectory":"true",
       "installerIcon": "./build/favicon.ico"
-    },
-    "files" : [
-      {
-        "from": "./",
-        "to": "./"
-      },
-      "!dist",
-      {
-        "from": "../web-app/dist/*",
-        "to": "web"
-      }
-    ]
-    
+    }
   }
 }
