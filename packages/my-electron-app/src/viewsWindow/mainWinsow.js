@@ -13,6 +13,8 @@ const isdev =!app.isPackaged //区分开发环境还是打包环境
        this.win = new BrowserWindow({
             width: 800,
             height: 600,
+            minHeight:600,
+            minWidth:800,
             // frame:false, //缩小，最大化去除
            webPreferences:{
             preload: path.join(__dirname, '../preload.js'),
