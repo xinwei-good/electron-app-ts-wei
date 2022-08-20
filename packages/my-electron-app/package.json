@@ -12,26 +12,39 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^19.0.4",
-    "electron-builder": "^23.1.0"
+    "electron-builder": "^23.1.0",
+    "electron-updater": "^5.2.1"
   },
   "dependencies": {
     "yarn": "^1.22.19"
   },
   "build": {
-    "productName":"测试应用",
-    "asar":false,
+    "productName": "测试应用",
+    "asar": false,
     "appId": "rust-yx.app",
     "mac": {
-      "target": ["dmg","zip"]
+      "target": [
+        "dmg",
+        "zip"
+      ]
     },
     "win": {
-      "icon":"./build/tea.png", 
-      "target": ["nsis","zip"]
+      "icon": "./build/tea.png",
+      "target": [
+        "nsis",
+        "zip"
+      ]
     },
-    "nsis":{
-      "oneClick":"false",
-      "allowToChangeInstallationDirectory":"true",
+    "nsis": {
+      "oneClick": "false",
+      "allowToChangeInstallationDirectory": "true",
       "installerIcon": "./build/favicon.ico"
-    }
+    },
+    "publish":[
+      {
+        "provider":"generic",
+		    "url": "http://127.0.0.1:5500/dist/"
+      }
+    ]
   }
 }

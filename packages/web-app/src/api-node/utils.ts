@@ -23,4 +23,12 @@ function invokeCmd(cmd: string, args?: any) {
   }
 }
 
-export { sendCmd, invokeCmd };
+function bindEvent(cmd: string, _callback?: (mag: unknown, data: any) => any) {
+  if (isElectron) {
+    ipcRenderer?.on(cmd);
+  } else {
+    console.error(`非electron运行:invokeCmd[${cmd}已发送]`);
+  }
+}
+
+export { sendCmd, invokeCmd, bindEvent };
